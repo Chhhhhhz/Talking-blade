@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Talking Blade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-screen" class="bg-room">
+    <!-- Верхняя панель: Монеты и Потребности -->
+    <div class="top-bar">
+      <div class="coins-box">🪙 <span id="coins">100</span></div>
+      <div class="stats">
+        <div class="stat">🍖 <progress id="bar-hunger" value="80" max="100"></progress></div>
+        <div class="stat">🫧 <progress id="bar-clean" value="80" max="100"></progress></div>
+        <div class="stat">⚡ <progress id="bar-energy" value="80" max="100"></progress></div>
+        <div class="stat">🖤 <progress id="bar-happy" value="80" max="100"></progress></div>
+      </div>
+    </div>
+
+    <!-- Облачко с репликой Блэйда -->
+    <div id="speech-bubble" class="hidden">...</div>
+
+    <!-- Персонаж и зона взаимодействия -->
+    <div id="stage">
+      <div id="character-container">
+        <div id="bubbles-overlay" class="hidden">🫧🫧🫧</div>
+        <img id="blade-sprite" src="https://api.dicebear.com/7.x/bottts/svg?seed=BladeDefault" alt="Blade" />
+      </div>
+    </div>
+
+    <!-- Эффект темноты для сна -->
+    <div id="sleep-overlay" class="hidden"></div>
+
+    <!-- Нижняя панель кнопок -->
+    <div class="bottom-bar">
+      <button onclick="feedBlade()">🍙 Покормить</button>
+      <button onclick="washBlade()">🧽 Помыть</button>
+      <button onclick="toggleSleep()">🌙 Спать</button>
+      <button id="mic-btn" onclick="toggleVoiceRepeat()">🎙️ Голос</button>
+      <button onclick="openShop()">🛍️ Магазин</button>
+    </div>
+  </div>
+
+  <!-- Окно магазина и скинов -->
+  <div id="shop-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Магазин</h2>
+        <button onclick="closeShop()">✖</button>
+      </div>
+      <h3>Еда (пополняет голод)</h3>
+      <div id="food-list" class="shop-grid"></div>
+      <h3>Скины для Блэйда</h3>
+      <div id="skin-list" class="shop-grid"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
