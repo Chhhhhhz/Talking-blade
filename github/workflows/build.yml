@@ -2,7 +2,6 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -27,7 +26,6 @@ jobs:
         run: |
           npm install
           npx cap add android
-          # Добавляем разрешение на микрофон в AndroidManifest.xml
           sed -i 's/<uses-permission android:name="android.permission.INTERNET" \/>/<uses-permission android:name="android.permission.INTERNET" \/>\n    <uses-permission android:name="android.permission.RECORD_AUDIO" \/>\n    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" \/>/' android/app/src/main/AndroidManifest.xml
           npx cap sync android
 
