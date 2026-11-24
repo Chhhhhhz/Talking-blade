@@ -1,0 +1,6 @@
+{
+  "appId": "com.gift.talkingblade",
+  "appName": "Talking Blade",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
